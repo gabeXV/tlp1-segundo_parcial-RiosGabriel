@@ -12,6 +12,13 @@ app.get("/products", (req,res) =>{
     res.json(db);
 });
 
+app.get("/products/:id", (req,res)=>{
+    const id = parseInt(req.params.id);
+    const getproducts = db.find((producto) => producto.id ===  id);
+
+    res.json(getproducts);
+});
+
 
 
 
