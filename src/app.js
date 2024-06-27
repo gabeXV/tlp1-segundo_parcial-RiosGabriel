@@ -19,6 +19,13 @@ app.get("/products/:id", (req,res)=>{
     res.json(getproducts);
 });
 
+app.post("/products", (req,res) =>{
+    const {id,producto, cantidad, precio} = req.body;
+    const newproduct = db.push({ id: id, producto: producto, cantidad: cantidad, precio: precio,});
+    console.log(newproduct);
+    res.json({ message: "Producto creado con éxito" });
+});
+
 
 
 
