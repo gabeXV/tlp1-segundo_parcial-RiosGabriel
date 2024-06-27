@@ -26,6 +26,15 @@ app.post("/products", (req,res) =>{
     res.json({ message: "Producto creado con éxito" });
 });
 
+app.put("/products/:id", (req,res) => {
+const id = parseInt(req.params.id);
+const { producto, cantidad, precio} = req.body;
+const getproducts = db.find((producto) => producto.id === id );
+getproducts.producto = producto, cantidad, precio;
+console.log (getproducts);
+res.json({message: "producto actualizado"});
+});
+
 
 
 
