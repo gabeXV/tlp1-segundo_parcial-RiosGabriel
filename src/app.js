@@ -35,6 +35,15 @@ console.log (getproducts);
 res.json({message: "producto actualizado"});
 });
 
+app.delete("/products/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const getproducts = db.find((producto) => producto.id === id);
+    const productsindex = db.indexOf (getproducts);
+    const deleteproducts = db.splice(productsindex, 1);
+
+    res.json ({ mensaje: "producto eliminado del inventario", deleteproducts  })
+})
+
 
 
 
